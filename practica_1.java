@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class practica_1{
+public class Practica_1{
     public static void main(String[] args) {
        System.out.println("Calculadora");
        Scanner scan = new Scanner(System.in);
