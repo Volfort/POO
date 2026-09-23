@@ -1,0 +1,28 @@
+﻿3Guion Explicativo: Práctica 3 — Programación Orientada a Objetos
+
+
+Presentador: Bienvenidos a la explicación de la Práctica 3. Los problemas tienen múltiples soluciones y un programa simple puede volverse más complejo de lo esperado. Por eso los objetivos fueron: verificar la información proporcionada por un LLM para aumentar la calidad y veracidad de los trabajos académicos, y elaborar un programa donde se empleen distintos métodos y estructuras de la forma más sencilla posible.
+
+
+Orador 1: Del marco teórico, usamos el paquete java.util con la clase Scanner para capturar los datos del usuario, en particular el método nextInt() para leer el número de cinco dígitos. Se emplearon dos estructuras de control: while, para validar la entrada, haciendo que no puedas pasar a lo siguiente mientras el número no tenga cinco dígitos; e if-else, usada dentro del método de esPalindromo para retornar true o false, y en el main para mostrar el mensaje correspondiente.
+
+
+Orador 2: También revisamos la división y el módulo en Java. Al dividir dos enteros, el resultado también es entero y no se redondea; y el operador módulo devuelve el residuo de una división. Con estas operaciones se obtienen los dígitos de un número de cinco cifras: el primer dígito con num entre 10000, el último con num módulo 10, el segundo con num entre 1000 y luego módulo 10, y el cuarto con num entre 10 y luego módulo 10.
+
+
+Orador 3: El método public static boolean esPalindromo(int num) es público, así que puede invocarse desde cualquier parte; devuelve boolean, es decir, únicamente true o false; y recibe como parámetro el número de cinco dígitos. Dentro del método se compara el primer dígito con el último y el segundo con el cuarto; el dígito central no se compara porque no afecta la condición de palíndromo. También vimos la clase String, que en Java representa las cadenas de caracteres como objetos y ofrece métodos para su manipulación.
+
+
+Presentador: En el desarrollo, se le preguntó a un LLM sobre el funcionamiento de HashMap y TreeSet, pidiéndole tres ejemplos comunes de aplicación.
+
+
+Orador 4: HashMap es un mapa de llaves y valores donde las llaves son únicas pero los valores pueden repetirse; no mantiene orden y usa una función hash para dar acceso en tiempo promedio constante, con métodos como put(), get() y containsKey(). TreeSet es un conjunto que no admite duplicados y mantiene sus elementos siempre ordenados, implementado con un árbol binario balanceado, con métodos como add(), remove(), contains(), first() y last(). Como ejemplos de aplicación se mostró un directorio escolar con HashMap para buscar alumnos por número de cuenta, un padrón alfabético de participantes con TreeSet, y una tabla de puntuaciones de un torneo también con TreeSet.
+
+
+Orador 5: El segundo ejercicio fue el Ejercicio Palíndromo. El programa se centra en el método estático main, declarado con el parámetro String[] args para que la máquina virtual lo reconozca como punto de entrada. Mediante Scanner se captura el número, y con un ciclo while se valida que tenga cinco dígitos. Después, un método verifica si es palíndromo usando las operaciones de división y módulo, devolviendo true o false, y finalmente se imprime el resultado.
+
+
+Presentador: En las pruebas de validación, el programa volvió a pedir el número cuando no tenía cinco dígitos, y evaluó correctamente casos como 12321, 16061 y 87078 como palíndromos.
+
+
+Presentador: Para cerrar, el primer objetivo se cumplió, ya que se comprendió lo que es HashMap y TreeSet, y el alumnado pudo discernir si la información proporcionada era útil o no. El segundo objetivo también se cumplió, ya que se entendió mejor cómo funcionan los métodos y estructuras, encontrando una solución sencilla y eficiente al problema. Gracias por acompañarnos en esta explicación de la Práctica 3.
