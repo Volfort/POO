@@ -1,0 +1,28 @@
+﻿Guión : Práctica 4.
+
+
+Presentador: Bienvenidos a la explicación de la Práctica 4. Actualmente los estudiantes usan LLM para consultar conceptos técnicos de programación sin verificarlos, y estos modelos pueden confundir o mezclar conceptos entre distintos lenguajes, afectando la calidad del aprendizaje. Por eso los objetivos fueron: investigar con apoyo de la LLM el concepto de constructor en Java con un prompt eficiente que limitara la respuesta, y elaborar un programa que determine el número de palabras duplicadas en una oración, utilizando los métodos y estructuras adecuadas.
+
+
+Orador 1: Del marco teórico, se usó un HashMap para contar la frecuencia con la que se repiten las palabras. Para manipular cadenas de texto se emplearon funciones de la clase String: toLowerCase(), que normaliza el texto a minúsculas; replaceAll(regex, " "), que elimina caracteres no deseados según un patrón; isEmpty(), que valida si la cadena está vacía comportándose como booleano; y trim(), que elimina los caracteres en blanco de los extremos de una cadena. También se usó TreeSet, una colección de java.util que almacena sus elementos de forma organizada y sin duplicados, para listar las palabras contadas ordenadas alfabéticamente.
+
+
+Orador 2: Para el manejo de los datos en los HashMap se necesitaron las funciones containsKey(), para comprobar si una llave existe; get(), para obtener el elemento asociado a una llave; put(llave, valor), para ingresar un elemento, reemplazándolo si la llave ya existe; y keySet(), que regresa el conjunto de llaves del mapa. Para el TreeSet se usó add(), que permite ingresar los valores.
+
+
+Presentador: En el desarrollo, primero se le preguntó a un LLM sobre los destructores en Java, para leer y analizar su respuesta.
+
+
+Orador 3: Java no tiene destructores como C++. En su lugar tiene el recolector de basura, que libera automáticamente la memoria de los objetos sin referencias, sin que el programador lo controle como tal. También existe el método finalize(), que el recolector invoca para destruir un objeto, pero está obsoleto porque su ejecución no está garantizada. La forma moderna es usar la interfaz AutoCloseable con el método close(), usada junto con el bloque try-with-resources, cierra el recurso automáticamente al terminar el bloque.
+
+
+Presentador: El segundo ejercicio fue el Analizador de Palabras, donde se emplearon clases, métodos y estructuras de datos para verificar cuáles palabras están repetidas y cuántas veces.
+
+
+Orador 4: Se creó la clase AnalizadorPalabras, importando de java.util las interfaces Collection y Map, y las clases HashMap y TreeSet. La clase declara un atributo oracion de tipo String y un atributo frecuencia de tipo Map, fabricado como HashMap. El constructor recibe la cadena a analizar y la asigna al atributo oracion. El método contarPalabras primero valida, con trim(), que la oración no esté vacía; después limpia el texto con toLowerCase() y replaceAll(), y lo separa en palabras con split(). Luego, recorriendo cada palabra, se consulta el mapa con containsKey(): si la palabra ya existía, se usa get() para saber cuántas veces se había registrado y put() para actualizar el contador incrementado en uno; si no existía, se inserta con frecuencia inicial de uno.
+
+
+Orador 5: El método obtenerNumeroDuplicadas recorre las llaves del mapa con keySet() y, con get(), verifica si la frecuencia es mayor a uno para contar cuántas palabras distintas se duplicaron. El método mostrarDuplicados crea un TreeSet para que las palabras se ordenen alfabéticamente sin duplicados adicionales, y con add() agrega las palabras repetidas antes de imprimirlas junto con su cantidad. En los resultados, al ejecutar el programa se comprobó que reconoce correctamente cuando no hay palabras repetidas, que distingue mayúsculas de minúsculas pero no acentos, y que es capaz de contabilizar varias palabras repetidas en oraciones largas con comas y comillas.
+
+
+Presentador: Para cerrar, se cumplieron los objetivos de la práctica. Investigar con ayuda de la LLM el concepto de constructor en Java nos ayudó a entender que sirve para dejar al objeto en un estado válido desde su creación, no solo para crearlo. Y se logró elaborar un programa funcional que determina las palabras duplicadas en una oración, usando containsKey(), get() y put() sobre un HashMap para contarlas, y un TreeSet para mostrarlas ordenadas alfabéticamente. Gracias por acompañarnos en esta explicación de la Práctica 4.
