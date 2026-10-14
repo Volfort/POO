@@ -1,0 +1,25 @@
+﻿Guión: Práctica 6
+
+
+Presentador: Bienvenidos a la explicación de esta práctica. Los estudiantes suelen consultar a los LLM conceptos técnicos de programación sin verificarlos, y estos modelos pueden confundir conceptos entre distintos lenguajes. Al mismo tiempo, al programar en Java se pide tener una administración de los programas dentro de un package, lo que implica no solo acomodar los programas, sino crear JavaDocs, añadir manuales y organizarlo todo con comandos. Por eso los objetivos fueron: investigar con apoyo de la LLM buenas prácticas para el empleo de jars y javadocs, usando un prompt eficiente; y administrar los trabajos realizados anteriormente dentro de un package para facilitar su entendimiento a diferentes usuarios.
+
+
+Orador 1: Del marco teórico, los paquetes en Java se utilizan para agrupar clases relacionadas entre sí, siendo capaces también de albergar documentos de texto, subclases e interfaces, con el fin de hacer el código más sencillo de manejar, organizar y mantener. Los paquetes hechos por el usuario necesitan definirse en sus respectivas clases usando la palabra package seguida de su dirección, unida por puntos, junto a su nombre. Por otro lado, los javadocs son herramientas que generan APIs en formato HTML mediante Java, siendo el estándar para documentar clases. Usan etiquetas como @author, para nombrar a los autores del documento; @version, para mostrar la versión de la clase; @param, para informar los parámetros que utiliza un método; y @return, para indicar lo que retorna el método.
+
+
+Presentador: En el desarrollo, primero le preguntamos a la LLM sobre buenas prácticas para el uso de JAR y Javadoc, y cuál es la mejor manera de generar un Javadoc.
+
+
+Orador 2: Entre las buenas prácticas para JAR, la LLM mencionó separar el código fuente de los binarios, de modo que un JAR de distribución solo contenga archivos compilados y recursos; configurar explícitamente el manifiesto, definiendo el atributo Main-Class si el JAR es ejecutable; usar nomenclatura y versionado semántico; respetar la jerarquía de directorios declarada en el package; y gestionar las dependencias externamente salvo que se busque un fat JAR. Para Javadoc recomendó documentar el qué y el por qué, no el cómo; usar de forma rigurosa las etiquetas estándar; redactar una primera oración concisa que sintetice la función; y mantener el Javadoc sincronizado si cambia la firma del método. Sobre cómo generarlo, mencionó tres niveles: a nivel profesional con herramientas como Maven o Gradle; a nivel académico con el comando directo del JDK, javadoc -d doc -sourcepath src; o en el IDE, escribiendo /** y presionando Enter sobre la clase o método.
+
+
+Presentador: Con esa base, se organizó un paquete general que reúne las prácticas y proyectos del curso.
+
+
+Orador 3: La estructura de carpetas  fue mx, unam, die, poo, g7, y dentro de cada práctica, así como de la etapa 1, se incluyeron las carpetas src, test, doc y el archivo .jar. Para generar cada JAR se usó el comando jar -cvfe nombre.jar ClasePrincipal -C clase, donde cvfe significa crear, verbose, archivo de salida y entry point; la e sirve para establecer la clase principal con el main, anotándola en el MANIFEST para que el archivo sea ejecutable. Luego con jjar tf se listó el contenido del .jar para comprobar que se armó correctamente, y con java -jar se ejecutó el programa de forma autónoma, sin necesitar el código fuente.
+
+
+Orador 4: Para la documentación se usó javadoc -author -version -d doc src/*.java, que lee los comentarios /** ... */ del código fuente, con sus etiquetas, y construye el sitio HTML con la documentación de clases y métodos. En la etapa 1 del proyecto existían cinco clases: Main, Sistema, Paciente, Medico y Enfermero, cada una documentada de la misma forma. En los resultados, la documentación de la etapa 1 mostró la API completa del sistema hospitalario con sus clases, autores y métodos, y la de la Práctica 4 mostró la clase AnalizadorPalabras con sus etiquetas @param y @return. Al ejecutar los archivos .jar desde la consola, la práctica 1 corrió la calculadora, la práctica 3 evaluó que 12321 es un palíndromo, la práctica 4 contó las palabras duplicadas de una oración, y la etapa 1 ejecutó el flujo completo del sistema hospitalario, registrando médicos, enfermeros y pacientes, y asignándolos correctamente.
+
+
+Presentador: Para cerrar, se cumplieron los objetivos de la práctica. Investigamos con ayuda de la LLM las buenas prácticas para el uso de JARs y Javadocs, contrastando sus respuestas con la documentación oficial, lo que nos ayudó a entender que los LLM son una herramienta de apoyo cuya información debe verificarse. Y logramos organizar los trabajos anteriores dentro de un package con una estructura ordenada de carpetas, generando la documentación con Javadoc y empaquetando los programas en archivos JAR, confirmando con las pruebas que todo compila y se ejecuta correctamente. Gracias por acompañarnos en esta explicación.
