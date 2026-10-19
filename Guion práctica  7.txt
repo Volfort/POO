@@ -1,0 +1,25 @@
+﻿Guion: Práctica 7
+
+
+Presentador: Bienvenidos a la explicación de esta práctica. El uso de LLM como herramienta de consulta académica exige un enfoque crítico: aceptar sus respuestas automáticamente puede llevar a adoptar malas prácticas de diseño en la programación orientada a objetos. Por eso es esencial interactuar con la IA para cuestionar decisiones estructurales, como los problemas de acoplamiento al usar modificadores de acceso específicos en la herencia. Los objetivos de esta práctica fueron: consultar a un LLM por qué no es buena práctica usar encapsulamiento protected en herencia, para verificar su información y lograr programas más eficientes; construir una jerarquía de herencia profunda utilizando Cuadrilátero como superclase base, derivando sucesivamente en Trapezoide, Paralelogramo, Rectángulo y Cuadrado; y aplicar la sobreescritura de métodos mediante @Override, para que cada subclase calcule el área con su fórmula correspondiente.
+
+
+Orador 1: Del marco teórico, la herencia le permite a las clases adquirir las propiedades y comportamientos de otras, promoviendo la reutilización de código y el polimorfismo. La palabra reservada extends declara una clase heredada de una clase base. instanceof() permite afirmar que un objeto es heredado de otra clase. toString, definido en la clase Object, se usa para mostrar la información de un objeto. @Override redefine el comportamiento de un método específico en una subclase, y debe tener el mismo nombre que la función que sobreescribe. super permite acceder a los elementos de la clase base. Y se distingue la sobrecarga, que permite definir varios métodos con el mismo nombre pero distintos parámetros, de la sobreescritura, que redefine un método heredado.
+
+
+Presentador: En el desarrollo, primero le preguntamos a un LLM por qué no es buena práctica usar encapsulamiento protected en herencia.
+
+
+Orador 2: Las respuestas coincidieron en varios puntos. En Java, protected no solo da acceso a las subclases, sino también a cualquier clase del mismo paquete, dejando los datos más expuestos de lo esperado. Esto genera un acoplamiento fuerte: si la clase padre cambia el nombre, tipo o lógica de un atributo protected, se rompen todas las clases hijas, lo que se conoce como el problema de la clase base frágil. También se pierde el control de las invariantes, porque cualquier subclase puede modificar el atributo directamente sin pasar por validaciones, dejando al objeto en un estado inconsistente. Además, un atributo protected se vuelve parte de la API pública de facto hacia las subclases, lo que complica cambiarlo después. La recomendación general fue declarar los atributos como private y exponer su acceso mediante getters, setters o constructores con super.
+
+
+Presentador: Con esa recomendación, se desarrolló el programa de cuadriláteros usando herencia.
+
+
+Orador 3: Se comenzó con la clase Punto, con atributos x y y de tipo double, encapsulados de forma privada, con su constructor y sus getters. Después, la clase Cuadrilatero se definió con cuatro objetos Punto, también privados, con un constructor que establece los cuatro vértices, sus getters, y un método para imprimirlos usando los getters de Punto. A partir de ahí, con extends se creó la clase hija Trapezoide, que hereda sus métodos y atributos; su constructor usa super para construirse a partir de Cuadrilatero, y su método de área usa Math.abs sobre las distancias entre vértices para calcular (baseMayor + baseMenor) por altura entre dos.
+
+
+Orador 4: De Trapezoide se derivó Paralelogramo, luego Rectángulo y finalmente Cuadrado. Sus constructores utilizan super y sus métodos CalcularArea se sobreescriben con @Override para aplicar la fórmula. En el Cuadrado, el área se calcula multiplicando lado por lado, obtenido mediante get. Finalmente En Main se asignaron los puntos y se invocaron los métodos para imprimir vértices y áreas. Las cinco figuras mostraron correctamente sus vértices y calcularon un área de 24.0, 
+
+
+Presentador: Para cerrar, modelar los cuadriláteros como una cadena de clases, donde cada una es un caso específico de la anterior, permitió con la herencia reutilizar atributos y métodos sin duplicar código. El uso de super, @Override y el encapsulamiento facilitó que cada clase heredara correctamente de su padre, y los resultados obtenidos confirman que los vértices y las áreas calculadas son correctos, demostrando que combinar estos mecanismos da como resultado un código más ordenado, reutilizable y fácil de extender. Gracias por acompañarnos en esta explicación.
